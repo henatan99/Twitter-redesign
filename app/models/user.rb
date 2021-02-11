@@ -8,4 +8,7 @@ class User < ApplicationRecord
         dependent: :destroy,
         inverse_of: 'follower'
     has_many :followers, through: :followings, foreign_key: :followed_id
+
+    validates :username, presence: true, uniqueness: true, length: { maximum: 20 }
+    validates :fullname, presence: true, length: { maximum: 30 }
 end
