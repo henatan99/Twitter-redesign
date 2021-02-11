@@ -10,20 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_114259) do
+ActiveRecord::Schema.define(version: 2021_02_11_131919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "followings", force: :cascade do |t|
-    t.integer "FollowerId"
-    t.integer "FollowedId"
+    t.integer "follower_id"
+    t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "opinions", force: :cascade do |t|
     t.text "text"
+    t.integer "author_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -37,4 +38,7 @@ ActiveRecord::Schema.define(version: 2021_02_11_114259) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "followings", "users", column: "followed_id"
+  add_foreign_key "followings", "users", column: "follower_id"
+  add_foreign_key "opinions", "users", column: "author_id"
 end

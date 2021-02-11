@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Text</th>
+      <th>Author</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
     <% @opinions.each do |opinion| %>
       <tr>
         <td><%= opinion.text %></td>
+        <td><%= opinion.author_id %></td>
         <td><%= link_to 'Show', opinion %></td>
         <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
         <td><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></td>

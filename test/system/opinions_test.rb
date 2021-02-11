@@ -14,6 +14,7 @@ class OpinionsTest < ApplicationSystemTestCase
     visit opinions_url
     click_on "New Opinion"
 
+    fill_in "Author", with: @opinion.author_id
     fill_in "Text", with: @opinion.text
     click_on "Create Opinion"
 
@@ -25,6 +26,7 @@ class OpinionsTest < ApplicationSystemTestCase
     visit opinions_url
     click_on "Edit", match: :first
 
+    fill_in "Author", with: @opinion.author_id
     fill_in "Text", with: @opinion.text
     click_on "Update Opinion"
 

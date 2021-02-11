@@ -17,7 +17,7 @@ class OpinionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create opinion" do
     assert_difference('Opinion.count') do
-      post opinions_url, params: { opinion: { text: @opinion.text } }
+      post opinions_url, params: { opinion: { author_id: @opinion.author_id, text: @opinion.text } }
     end
 
     assert_redirected_to opinion_url(Opinion.last)
@@ -34,7 +34,7 @@ class OpinionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update opinion" do
-    patch opinion_url(@opinion), params: { opinion: { text: @opinion.text } }
+    patch opinion_url(@opinion), params: { opinion: { author_id: @opinion.author_id, text: @opinion.text } }
     assert_redirected_to opinion_url(@opinion)
   end
 
