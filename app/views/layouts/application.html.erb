@@ -8,30 +8,83 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
   </head>
 
   <body>
-    <nav class="nav">
-    <%= link_to 'Stay in touch', root_path %>
-    <div class="menu">
-      <div class="menu-item">
-        <%= menu_link_to 'Timeline', posts_path %>
-      </div>
-      <div class="menu-item">
-        <%= menu_link_to 'All users', users_path %>
-      </div>
-      <div class="menu-item">
-        <% if current_user %>
-          <p> <%= current_user.name %>  </p>
-        <% end %>
-      </div>
+    <header>
+      <nav class= "main-nav">       
+        <div class="nav-left">
+          <span class="profile-img"></span>
+          <span class="username color-1 font-fam">HENOK MEKONNEN </span>
+        </div>
+        <div class="nav-middle">        
+        </div>
+        <div class="nav-right">
+          <span class="iconify" data-icon="fluent:edit-16-filled" data-inline="false"></span>
+          <span class="iconify" data-icon="fluent:mail-24-filled" data-inline="false"></span>
+          <span class="iconify" data-icon="fa-solid:search" data-inline="false"></span>
+          <span class="iconify" data-icon="clarity:settings-solid" data-inline="false"></span>
+        </div>
+      </nav>
+    </header>
+
+    <div class = "front">
+      <section class = "left-col">
+        <div class = "following">
+          <div class="follow-part">
+            <p class="color-2">120</p>
+            <p class="color-1">Following</p>
+          </div>
+          <div class="follow-part">
+            <p class="color-2">340</p>
+            <p class="color-1">Followers</p>
+          </div>          
+        </div>
+        <ul class = "main-links color-1">
+          <li class="main-link-lists">HOME</li>
+          <li class="main-link-lists">CONNECT</li>
+          <li class="main-link-lists">DISCOVER</li>
+          <li class="main-link-lists">PROFILE</li>
+          <li class="main-link-lists">STATISTICS</li>
+        </ul>
+      </section>
+      <section class = "middle-col">
+        <div class="front-menu">
+          <span class="menu-title">OPINIONS</span>
+        <div>
+
+        <section class = "opinion-section">
+          <span class="opinion-title">YOUR OPINION</span>
+          <div class = "opinion-field">
+          </div>
+        </section>
+
+        <section class="opinions-section">
+          <span class="opinions-title">4 NEW OPINION</span>
+          <article class="opinion-story">
+           <img class="opinion-profile"></img>
+           <div class = "opinion-body">
+              <h1>Myley Ray Cyrus</h1>
+              <p>This is opinoin give by Miley Ray cyrus. It is her first opinion.</p>
+           </div>
+          </article>
+          <article class="opinion-story">
+           <img class="opinion-profile"></img>
+           <div class = "opinion-body">
+              <h1>Myley Ray Cyrus</h1>
+              <p>This is opinoin give by Miley Ray cyrus. It is her first opinion.</p>
+           </div>
+          </article>
+        </section>
+      </section>
+      <section class = "right-col">
+        <div class = "title font-1">
+          <span>WHO TO FOLLOW</span>
+        </div>
+      </section>
     </div>
-    <% if current_user %>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', user_session_path %>
-    <% end %>
-  </nav>
 
     <% if flash[:notice] %>
       <div class = "notification is-primary global-notification"> 
