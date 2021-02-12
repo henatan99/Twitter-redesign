@@ -1,5 +1,22 @@
-<h1>New User</h1>
+<div class = "login" %>
+    <div>
+        <% if alert %>
+        <p id="alert"><%= alert %></p>
+        <% end %>
+    </div>
+    
+    <div class="login-form">
+        <h1 class="font-fam">Sign Up</h1>
 
-<%= render 'form', user: @user %>
-
-<%= link_to 'Back', users_path %>
+        <%= form_for @user do |form| %>
+        <div class="field">
+        <div class = 'inner-div'> 
+            <span class = "text-field"> <%= form.text_field :username, placeholder: "Enter your username", :class => 'text' %> </span>      
+            <span class = "text-field"> <%= form.text_field :fullname, placeholder: "Enter your Full Name", :class => 'text' %> </span>
+            <%= form.submit 'Sign Up', :class => 'submit' %> 
+            
+        </div>
+        </div>
+        <% end %>    
+    </div>
+</div>

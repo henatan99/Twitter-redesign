@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
     def new; end
   
     def create
-      user = User.find_by_name(params[:name])
+      user = User.find_by_username(params[:username])
       if user
         session[:user_id] = user.id
         redirect_to root_path, notice: 'Logged in succussfully!'
@@ -15,4 +15,4 @@ class SessionsController < ApplicationController
       session[:user_id] = nil
       redirect_to root_path, notice: 'Logged out succussfully!'
     end
-end
+  end
