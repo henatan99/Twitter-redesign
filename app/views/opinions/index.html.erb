@@ -1,1 +1,68 @@
-<p id="notice"><%= notice %></p>
+    <div class = "front">
+      <section class = "left-col">
+        <div class = "following">
+          <div class="follow-part">
+            <p class="color-2">120</p>
+            <p class="color-1">Following</p>
+          </div>
+          <div class="follow-part">
+            <p class="color-2">340</p>
+            <p class="color-1">Followers</p>
+          </div>          
+        </div>
+        <ul class = "main-links color-1">
+          <li class="main-link-lists"> <%= link_to 'HOME', root_path %> </li>
+          <li class="main-link-lists"> <%= link_to 'CONNECT', root_path %> </li>
+          <li class="main-link-lists"> <%= link_to 'DISCOVER', root_path %> </li>
+          <li class="main-link-lists"> <%= link_to 'PROFILE', root_path %> </li>
+          <li class="main-link-lists"> <%= link_to 'STATISTICS', root_path %></li>
+        </ul>
+      </section>
+      <section class = "middle-col">
+        <div class="front-menu">
+          <span class="menu-title">OPINIONS</span>
+        <div>
+
+        <section class = "opinion-section">
+        <p id="notice"><%= notice %></p>
+          <span class="opinion-title">YOUR OPINION</span>
+          
+          <div class = "opinion-field">
+            <%= render 'form', opinion: @opinion %>
+          </div>
+
+        </section>
+
+        <section class="opinions-section">
+          <span class="opinions-title">4 NEW OPINION</span>
+          
+          <% @opinions.each do |opinion| %>
+           <article class="opinion-story">
+            <img class="opinion-profile"></img>
+            <div class = "opinion-body">
+                <h1> <%= opinion.author.fullname %> </h1>
+                <p> <%= opinion.text %> </p>
+            </div>
+           </article>
+          <% end %>                    
+        </section>
+
+      </section>
+      
+      <section class = "right-col">
+        <div class = "title font-1">
+          <span>WHO TO FOLLOW</span>          
+        </div>
+        <div  class="opinions-section">
+        <% @users.each do |user| %>
+          <article class="opinion-story">
+           <img class="opinion-profile"></img>
+           <div class = "opinion-body">
+               <h1> <%= user.fullname %> </h1>
+               <p> <%= user.followers.first %> </p>
+           </div>
+          </article>
+        <% end %>
+        <div>
+      </section>
+    </div>

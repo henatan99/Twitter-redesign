@@ -19,7 +19,7 @@
         <div class="nav-left">
         <% if current_user %>
           <span class="profile-img"></span>
-          <span class="username color-1 font-fam">HENOK MEKONNEN </span>
+          <span class="username color-1 font-fam"> <%= link_to current_user.fullname, root_path %> </span>
         <% else %>
           <span class="logo-text font-fam color-2 font-1p5">OPINION</span>
         <% end %>
@@ -45,62 +45,7 @@
         
       </nav>
     </header>
-    <!--
-    <div class = "front">
-      <section class = "left-col">
-        <div class = "following">
-          <div class="follow-part">
-            <p class="color-2">120</p>
-            <p class="color-1">Following</p>
-          </div>
-          <div class="follow-part">
-            <p class="color-2">340</p>
-            <p class="color-1">Followers</p>
-          </div>          
-        </div>
-        <ul class = "main-links color-1">
-          <li class="main-link-lists">HOME</li>
-          <li class="main-link-lists">CONNECT</li>
-          <li class="main-link-lists">DISCOVER</li>
-          <li class="main-link-lists">PROFILE</li>
-          <li class="main-link-lists">STATISTICS</li>
-        </ul>
-      </section>
-      <section class = "middle-col">
-        <div class="front-menu">
-          <span class="menu-title">OPINIONS</span>
-        <div>
-
-        <section class = "opinion-section">
-          <span class="opinion-title">YOUR OPINION</span>
-          <div class = "opinion-field">
-          </div>
-        </section>
-
-        <section class="opinions-section">
-          <span class="opinions-title">4 NEW OPINION</span>
-          <article class="opinion-story">
-           <img class="opinion-profile"></img>
-           <div class = "opinion-body">
-              <h1>Myley Ray Cyrus</h1>
-              <p>This is opinoin give by Miley Ray cyrus. It is her first opinion.</p>
-           </div>
-          </article>
-          <article class="opinion-story">
-           <img class="opinion-profile"></img>
-           <div class = "opinion-body">
-              <h1>Myley Ray Cyrus</h1>
-              <p>This is opinoin give by Miley Ray cyrus. It is her first opinion.</p>
-           </div>
-          </article>
-        </section>
-      </section>
-      <section class = "right-col">
-        <div class = "title font-1">
-          <span>WHO TO FOLLOW</span>
-        </div>
-      </section>
-    </div>
+    
 
     <% if flash[:notice] %>
       <div class = "notification is-primary global-notification"> 
@@ -112,7 +57,7 @@
       <div class = "notification is-danger global-notification"> 
       </div> 
     <% end %>
-    -->
+    
     <%= yield %>
   
   </body>

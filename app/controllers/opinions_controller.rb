@@ -1,9 +1,14 @@
+
 class OpinionsController < ApplicationController
+  before_action :require_login
   before_action :set_opinion, only: %i[ show edit update destroy ]
 
   # GET /opinions or /opinions.json
   def index
-    @opinions = Opinion.all
+    @opinion = Opinion.new
+    # timeline_opinions
+    @opinions = Opinion.order('created_at DESC')
+    @users = User.all
   end
 
   # GET /opinions/1 or /opinions/1.json
@@ -21,11 +26,11 @@ class OpinionsController < ApplicationController
 
   # POST /opinions or /opinions.json
   def create
-    @opinion = Opinion.new(opinion_params)
+    @opinion = current_user.opinions.new(opinion_params)
 
     respond_to do |format|
       if @opinion.save
-        format.html { redirect_to @opinion, notice: "Opinion was successfully created." }
+        format.html { redirect_to root_path, notice: "Opinion was successfully created." }
         format.json { render :show, status: :created, location: @opinion }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -58,6 +63,10 @@ class OpinionsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    # def timeline_opinions
+    #   @timeline_opinions ||= Opinion.all.ordered_by_most_recent.includes(:author)
+    # end
+
     def set_opinion
       @opinion = Opinion.find(params[:id])
     end
