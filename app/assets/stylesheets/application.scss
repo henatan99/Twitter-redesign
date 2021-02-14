@@ -352,16 +352,7 @@
                     width: 70%;
                     .name-follow-wrapper{
                         display: flex;
-                        flex-direction: row;
-                        .follow-link{
-                            background-color: green;
-                            width: 2rem;
-                            height: 1.5rem;
-                            border-radius: 0.5rem;
-                            align-items: center;
-                            text-align: center;
-                            margin-left: 0.5rem;
-                        }
+                        flex-direction: row;                        
                     }
                 }
             }    
