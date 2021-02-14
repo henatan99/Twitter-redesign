@@ -12,4 +12,8 @@ class User < ApplicationRecord
 
     validates :username, presence: true, uniqueness: true, length: { maximum: 20 }
     validates :fullname, presence: true, length: { maximum: 30 }
+
+    def follow(user)
+        following = followings.build(followed: user)        
+    end 
 end

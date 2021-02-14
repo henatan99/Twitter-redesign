@@ -9,6 +9,10 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @opinion = Opinion.new
+    @opinions = Opinion.order('created_at DESC')
+    @users = User.all
+    @user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -57,6 +61,16 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def follow
+    @user = User.find(params[:id])
+    following = current_user.follow(@user)
+    if following
+      redirect_to root_path, notice: 'You followed #{@user.username}!'
+    else
+      redirect_to root_path, notice: 'Invalid Request!'
+    end     
+  end 
 
   private
     # Use callbacks to share common setup or constraints between actions.

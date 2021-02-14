@@ -18,8 +18,8 @@
       <nav class= "main-nav">       
         <div class="nav-left">
         <% if current_user %>
-          <span class="profile-img"> <%= link_to current_user.photo, users_path %> </span>
-          <span class="username color-1 font-fam"> <%= link_to current_user.fullname, root_path %> </span>
+          <span class="profile-img"> <%= link_to current_user.photo, user_path(current_user) %> </span>
+          <span class="username color-1 font-fam"> <%= link_to current_user.fullname, user_path(current_user) %> </span>
         <% else %>
           <span class="logo-text font-fam color-2 font-1p5">OPINION</span>
         <% end %>
@@ -27,7 +27,7 @@
         <div class="nav-middle">
           <span class="logo"> </span>
           <% if current_user %>
-          <span class="logout"> <%= link_to 'Log Out', session_path(session), method: :delete %> </span>
+          <span class="logout font-fam"> <%= link_to 'Log Out', session_path(session), method: :delete %> </span>
           <% end %>       
         </div>
         

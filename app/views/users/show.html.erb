@@ -1,0 +1,116 @@
+<div class = "front">
+<section class = "left-col">
+  <div class = "following">
+    <div class="follow-part">
+      <p class="color-2 font-fam">120</p>
+      <p class="color-1 font-fam">Following</p>
+    </div>
+    <div class="follow-part">
+      <p class="color-2 font-fam">340</p>
+      <p class="color-1 font-fam">Followers</p>
+    </div>          
+  </div>
+  <ul class = "main-links color-1">
+    <li class="main-link-lists font-fam"> 
+      <span class="iconify link-iconify" data-icon="clarity:home-solid" data-inline="false"></span>
+      <%= link_to 'HOME', root_path %> 
+    </li>
+    <li class="main-link-lists font-fam"> 
+      <span class="iconify link-iconify" data-icon="feather:at-sign" data-inline="false"></span>
+      <%= link_to 'CONNECT', root_path %> 
+    </li>
+    <li class="main-link-lists font-fam"> 
+      <span class="iconify link-iconify" data-icon="fa-solid:hashtag" data-inline="false"></span>
+      <%= link_to 'DISCOVER', root_path %> 
+    </li>
+    <li class="main-link-lists font-fam"> 
+      <span class="iconify link-iconify" data-icon="vs:profile" data-inline="false"></span>
+      <%= link_to 'PROFILE', root_path %> 
+    </li>
+    <li class="main-link-lists font-fam"> 
+      <span class="iconify link-iconify" data-icon="ant-design:pie-chart-filled" data-inline="false"></span>
+      <%= link_to 'STATISTICS', root_path %>
+    </li>
+  </ul>
+</section>
+<section class = "middle-col">
+  <div class = "back-img">
+  </div> 
+  <div class="front-menu">
+    <span class="menu-title font-fam">OPINIONS</span>
+  <div>
+
+  <section class = "opinion-section">
+  <p id="notice"><%= notice %></p>
+    <span class="opinion-title font-fam">YOUR OPINION</span>
+    
+    <div class = "opinion-field">
+      <%= render 'form', opinion: @opinion %>
+    </div>
+
+  </section>
+
+  <section class="opinions-section">
+    <span class="opinions-title font-fam">4 NEW OPINION</span>
+    
+    <% @opinions.each do |opinion| %>
+     <article class="opinion-story">
+      <img class="opinion-profile"></img>
+      <div class = "opinion-body font-fam">
+          <h1> <%= opinion.author.fullname %> </h1>
+          <p> <%= opinion.text %> </p>
+      </div>
+     </article>
+    <% end %>                    
+  </section>
+
+</section>
+
+<section class = "right-col">
+  <div class="show-profile" >
+        <div class="show-article">
+            <div class="photo-wrapper">
+                <span class="iconify" data-icon="carbon:add-alt" data-inline="false"></span>
+                <img class="user-img"> </img>
+                <span class="iconify" data-icon="ion:list-circle-outline" data-inline="false"></span>
+            </div>
+            <div class="user-name">
+                <h1> <%= @user.fullname %> </h1>
+                <p>@ <%= @user.username %> </p>
+            </div>        
+        </div>
+
+        <div class="show-following">
+            <div class="follow-nums">
+                <span>1453</span>
+                <p>Opinions</p>
+            </div>
+            <div class="follow-nums middle">
+                <span>365</span>
+                <p>Followings</p>
+            </div>
+            <div class="follow-nums">
+                <span>16M</span>
+                <p>Followers</p>
+            </div>
+        </div>
+  </div>
+  <div class = "title font-1">
+    <span>WHO TO FOLLOW</span>          
+  </div>
+  <div  class="who-to-section">
+  <% @users.each do |user| %>
+    <article class="who-to-story">
+     <img class="who-to-profile"></img>
+     <div class = "who-to-body">
+        <div class="name-follow-wrapper">
+         <h1> <%= link_to user.fullname, user_path(user) %> </h1>
+         <span class="follow-link font-fam color-2"> <%= link_to 'f', follow_user_path(user) %> </span>
+        </div>
+         <p> Followed by <%= user.followers.first %> </p>              
+     </div>
+    </article>
+  <% end %>
+  <div>
+</section>
+</div>
