@@ -47,9 +47,9 @@ RSpec.describe Following do
        
 
       context '' do
-        u1 = User.new(username: 'user1', fullname: 'user1 fullname')
-        u2 = User.new(username: 'user2', fullname: 'user2 fullname')
-        f1 = u1.followings.build(followed: u2)              
+        u1 = User.new(username: 'user1', fullname: 'user1 fullname')        
+        u2 = User.new(username: 'user2', fullname: 'user2 fullname')        
+        f1 = u1.followings.build(followed: u2)                    
         
         it '' do
             expect(f1).to be_valid
@@ -59,7 +59,7 @@ RSpec.describe Following do
         end
         it '' do
             expect(f1.followed = u2).to be_valid
-        end        
+        end
       end 
     end
 end

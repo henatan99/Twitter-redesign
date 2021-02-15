@@ -41,5 +41,7 @@ RSpec.describe User do
       it { is_expected.to have_many(:opinions) }
       it { is_expected.to have_many(:followings) }
       it { is_expected.to have_many(:followers) }      
+     
     end
+
 end

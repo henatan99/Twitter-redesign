@@ -13,6 +13,9 @@ class UsersController < ApplicationController
     @opinions = Opinion.order('created_at DESC')
     @users = User.all
     @user = User.find(params[:id])
+    @following = Following.new     
+    @followers = @user.followers
+    @last_follower = @followers.last
   end
 
   # GET /users/new
@@ -65,11 +68,18 @@ class UsersController < ApplicationController
   def follow
     @user = User.find(params[:id])
     following = current_user.follow(@user)
-    if following
+    if following.valid?
       redirect_to root_path, notice: 'You followed #{@user.username}!'
     else
       redirect_to root_path, notice: 'Invalid Request!'
     end     
+  end
+
+  def upload 
+    uploaded_file = params[:photo]
+    File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
+      file.write(uploaded_file.read)
+    end 
   end 
 
   private

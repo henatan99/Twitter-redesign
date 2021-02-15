@@ -18,7 +18,12 @@
       <nav class= "main-nav">       
         <div class="nav-left">
         <% if current_user %>
-          <span class="profile-img"> <%= link_to current_user.photo, user_path(current_user) %> </span>
+          
+          <span class="profile-img"> 
+          <% if current_user.photo %>
+          <%= image_tag(current_user.photo, style: 'width:100%' ) %> 
+          <% end %>
+          </span>
           <span class="username color-1 font-fam"> <%= link_to current_user.fullname, user_path(current_user) %> </span>
         <% else %>
           <span class="logo-text font-fam color-2 font-1p5">OPINION</span>

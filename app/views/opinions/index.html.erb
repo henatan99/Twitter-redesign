@@ -1,38 +1,48 @@
     <div class = "front">
-      <section class = "left-col">
-        <div class = "following">
-          <div class="follow-part">
-            <p class="color-2 font-fam">120</p>
-            <p class="color-1 font-fam">Following</p>
-          </div>
-          <div class="follow-part">
-            <p class="color-2 font-fam">340</p>
-            <p class="color-1 font-fam">Followers</p>
-          </div>          
-        </div>
-        <ul class = "main-links color-1">
-          <li class="main-link-lists font-fam"> 
-            <span class="iconify link-iconify" data-icon="clarity:home-solid" data-inline="false"></span>
-            <%= link_to 'HOME', root_path %> 
-          </li>
-          <li class="main-link-lists font-fam"> 
-            <span class="iconify link-iconify" data-icon="feather:at-sign" data-inline="false"></span>
-            <%= link_to 'CONNECT', root_path %> 
-          </li>
-          <li class="main-link-lists font-fam"> 
-            <span class="iconify link-iconify" data-icon="fa-solid:hashtag" data-inline="false"></span>
-            <%= link_to 'DISCOVER', root_path %> 
-          </li>
-          <li class="main-link-lists font-fam"> 
-            <span class="iconify link-iconify" data-icon="vs:profile" data-inline="false"></span>
-            <%= link_to 'PROFILE', root_path %> 
-          </li>
-          <li class="main-link-lists font-fam"> 
-            <span class="iconify link-iconify" data-icon="ant-design:pie-chart-filled" data-inline="false"></span>
-            <%= link_to 'STATISTICS', root_path %>
-          </li>
-        </ul>
-      </section>
+    <section class = "left-col">
+    <div class = "following">
+      <div class="follow-part">
+        <p class="color-2 font-fam">120</p>
+        <p class="color-1 font-fam">Following</p>
+      </div>
+      <div class="follow-part">
+        <p class="color-2 font-fam">340</p>
+        <p class="color-1 font-fam">Followers</p>
+      </div>          
+    </div>
+    <ul class = "main-links color-1">
+      <a href="<%= root_path %>" >
+        <li class="main-link-lists font-fam">     
+          <span class="iconify link-iconify" data-icon="clarity:home-solid" data-inline="false"></span>
+          <span> HOME </span>
+        </li>
+      </a>
+      <a href="<%= root_path %>" >
+        <li class="main-link-lists font-fam"> 
+          <span class="iconify link-iconify" data-icon="feather:at-sign" data-inline="false"></span>
+          <span> CONNECT </span> 
+        </li>
+      </a>
+      <a href="<%= root_path %>" >
+        <li class="main-link-lists font-fam"> 
+          <span class="iconify link-iconify" data-icon="fa-solid:hashtag" data-inline="false"></span>
+          <span> DISCOVER </span> 
+        </li>
+      </a>
+      <a href="<%= root_path %>" >
+        <li class="main-link-lists font-fam"> 
+          <span class="iconify link-iconify" data-icon="vs:profile" data-inline="false"></span>
+          <span> PROFILE </span>
+        </li>
+      </a>
+      <a href="<%= root_path %>" >
+        <li class="main-link-lists font-fam"> 
+          <span class="iconify link-iconify" data-icon="ant-design:pie-chart-filled" data-inline="false"></span>
+          <span> STATISTICS </span>
+        </li>
+      </a>
+    </ul>
+  </section>
       <section class = "middle-col">
         <div class="front-menu">
           <span class="menu-title font-fam">OPINIONS</span>
@@ -70,6 +80,7 @@
         </div>
         <div  class="who-to-section">
         <% @users.each do |user| %>
+          <% unless user == current_user %>
           <article class="who-to-story">
            <img class="who-to-profile"></img>
            <div class = "who-to-body">
@@ -77,9 +88,12 @@
                <h1> <%= link_to user.fullname, user_path(user) %> </h1>
                
               </div>
-               <p> Followed by <%= user.followers.first %> </p>              
+              <% if @last_follower %>
+               <p> Followed by <%= @last_follower.fullname %> </p>  
+              <% end %>            
            </div>
           </article>
+          <% end %>
         <% end %>
         <div>
       </section>

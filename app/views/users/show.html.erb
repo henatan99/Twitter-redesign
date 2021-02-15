@@ -45,6 +45,9 @@
 </section>
 <section class = "middle-col">
   <div class = "back-img">
+    <% if @user.coverimage %>
+      <%= image_tag(@user.coverimage, style: 'width:100%' ) %> 
+    <% end %>
   </div> 
   <div class="front-menu">
     <span class="menu-title font-fam">OPINIONS</span>
@@ -94,15 +97,15 @@
 
         <div class="show-following">
             <div class="follow-nums">
-                <span>1453</span>
+                <span> <%= @user.opinions.count %> </span>
                 <p>Opinions</p>
             </div>
             <div class="follow-nums middle">
-                <span>365</span>
+                <span> <%= @user.followeds.count %> </span>
                 <p>Followings</p>
             </div>
             <div class="follow-nums">
-                <span>16M</span>
+                <span> <%= @user.followers.count %></span>
                 <p>Followers</p>
             </div>
         </div>
@@ -112,16 +115,19 @@
   </div>
   <div  class="who-to-section">
   <% @users.each do |user| %>
+    <% unless user == current_user %> 
     <article class="who-to-story">
      <img class="who-to-profile"></img>
      <div class = "who-to-body">
         <div class="name-follow-wrapper">
-         <h1> <%= link_to user.fullname, user_path(user) %> </h1>
-         
+         <h1> <%= link_to user.fullname, user_path(user) %> </h1>         
         </div>
-         <p> Followed by <%= user.followers.first %> </p>              
+        <% if @last_follower %>
+         <p> Followed by <%= @last_follower.fullname %> </p> 
+        <% end %>             
      </div>
     </article>
+    <% end %>
   <% end %>
   <div>
 </section>
