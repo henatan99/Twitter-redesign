@@ -1,131 +1,103 @@
-<div class = "front">
-<section class = "left-col">
-  <div class = "following">
-    <div class="follow-part">
-      <p class="color-2 font-fam">120</p>
-      <p class="color-1 font-fam">Following</p>
-    </div>
-    <div class="follow-part">
-      <p class="color-2 font-fam">340</p>
-      <p class="color-1 font-fam">Followers</p>
-    </div>          
-  </div>
-  <ul class = "main-links color-1">
-    <a href="<%= root_path %>" >
-      <li class="main-link-lists font-fam">     
-        <span class="iconify link-iconify" data-icon="clarity:home-solid" data-inline="false"></span>
-        <span> HOME </span>
-      </li>
-    </a>
-    <a href="<%= root_path %>" >
-      <li class="main-link-lists font-fam"> 
-        <span class="iconify link-iconify" data-icon="feather:at-sign" data-inline="false"></span>
-        <span> CONNECT </span> 
-      </li>
-    </a>
-    <a href="<%= root_path %>" >
-      <li class="main-link-lists font-fam"> 
-        <span class="iconify link-iconify" data-icon="fa-solid:hashtag" data-inline="false"></span>
-        <span> DISCOVER </span> 
-      </li>
-    </a>
-    <a href="<%= root_path %>" >
-      <li class="main-link-lists font-fam"> 
-        <span class="iconify link-iconify" data-icon="vs:profile" data-inline="false"></span>
-        <span> PROFILE </span>
-      </li>
-    </a>
-    <a href="<%= root_path %>" >
-      <li class="main-link-lists font-fam"> 
-        <span class="iconify link-iconify" data-icon="ant-design:pie-chart-filled" data-inline="false"></span>
-        <span> STATISTICS </span>
-      </li>
-    </a>
-  </ul>
-</section>
-<section class = "middle-col">
-  <div class = "back-img">
+<div class = "front flex-row">
+
+<%= render './layouts/left' %>
+
+<section class = "middle-col flex-column">
+  
+  <picture class = "back-img">
     <% if @user.coverimage %>
-      <%= image_tag(@user.coverimage, style: 'width:100%' ) %> 
+      <%= image_tag(@user.coverimage_url.to_s, width: "100%", height: "100%") %>       
     <% end %>
-  </div> 
-  <div class="front-menu">
-    <span class="menu-title font-fam">OPINIONS</span>
-  <div>
-
-  <section class = "opinion-section">
-  <p id="notice"><%= notice %></p>
-    <span class="opinion-title font-fam">YOUR OPINION</span>
-    
-    <div class = "opinion-field">
-      <%= render 'form', opinion: @opinion %>
-    </div>
-
-  </section>
-
-  <section class="opinions-section">
-    <span class="opinions-title font-fam">4 NEW OPINION</span>
-    
-    <% @opinions.each do |opinion| %>
-     <article class="opinion-story">
+    <%= link_to 'Edit' %>
+  </picture>  
+  <%= render './layouts/frontmenu'%>
+  
+  <section class="opinions-section flex flex-column position-sticky">
+    <span class="opinions-title font-fam"> ALL OPINIONS </span>
+    <% @user.opinions.each do |opinion| %>
+      <article class="opinion-story flex-row">
       <img class="opinion-profile"></img>
       <div class = "opinion-body font-fam">
           <h1> <%= opinion.author.fullname %> </h1>
           <p> <%= opinion.text %> </p>
       </div>
      </article>
-    <% end %>                    
+    <% end %>
   </section>
 
 </section>
 
-<section class = "right-col">
+<section class = "right-col flex-column">
   <div class="show-profile" >
-        <div class="show-article">
-            <div class="photo-wrapper">
-            <a href="<%= follow_user_path(@user) %>">
-                <span class="iconify" data-icon="carbon:add-alt" data-inline="false"></span>
-            </a>             
-                <img class="user-img"> </img>
-                <span class="iconify" data-icon="ion:list-circle-outline" data-inline="false"></span>
+        <div class="show-article flex flex-column">
+            <div class="photo-wrapper flex-row flex">
+              <% if current_user.follow?(@user) %>
+                <a href="<%= follow_user_path(@user) %>">        
+                  <span class="iconify font-1p5" data-icon="grommet-icons:subtract-circle" data-inline="false"></span>        
+                </a>
+              <% else %>
+                <a href="<%= follow_user_path(@user) %>">
+                    <span class="iconify" data-icon="carbon:add-alt" data-inline="false"></span>
+                </a>
+              <% end %>             
+              <div class="user-img"> 
+                <% if @user.photo %>
+                  <%= image_tag(@user.photo_url.to_s, width: "100%", height: "100%") %> 
+                <% end %>
+              </div>
+              <span class="iconify" data-icon="ion:list-circle-outline" data-inline="false"></span>
             </div>
-            <div class="user-name">
+
+            <div class="user-name flex-column">
                 <h1> <%= @user.fullname %> </h1>
                 <p>@ <%= @user.username %> </p>
             </div>        
         </div>
 
-        <div class="show-following">
-            <div class="follow-nums">
+        <div class="show-following flex-row">
+            <div class="follow-nums flex-column flex">
                 <span> <%= @user.opinions.count %> </span>
                 <p>Opinions</p>
             </div>
-            <div class="follow-nums middle">
+            <div class="follow-nums flex-column flex middle">
                 <span> <%= @user.followeds.count %> </span>
                 <p>Followings</p>
             </div>
-            <div class="follow-nums">
+            <div class="follow-nums flex-column flex">
                 <span> <%= @user.followers.count %></span>
                 <p>Followers</p>
             </div>
         </div>
   </div>
-  <div class = "title font-1">
-    <span>WHO TO FOLLOW</span>          
+  <div class = "title flex font-1">
+    <span>FOLLOWED BY</span>          
   </div>
-  <div  class="who-to-section">
-  <% @users.each do |user| %>
-    <% unless user == current_user %> 
-    <article class="who-to-story">
-     <img class="who-to-profile"></img>
-     <div class = "who-to-body">
-        <div class="name-follow-wrapper">
-         <h1> <%= link_to user.fullname, user_path(user) %> </h1>         
-        </div>
-        <% if @last_follower %>
-         <p> Followed by <%= @last_follower.fullname %> </p> 
-        <% end %>             
+  <div  class="who-to-section flex-column flex">
+  <% @user.followers.each do |user| %>
+    <% unless user == @user %> 
+    <article class="who-to-story flex-row">
+     <div class="who-to-profile img-div">
+      <% if user.photo %>
+      <%= image_tag(user.photo_url.to_s) %> 
+      <% end %>
      </div>
+     <div class = "who-to-body">
+        <div class="name-follow-wrapper flex-coumn">
+         <h1> <%= link_to user.fullname, user_path(user) %> </h1>
+         <p> @ <%= user.username %> </p>         
+        </div>
+                      
+      </div>
+      <% if current_user.follow?(user) %>
+        <a href="<%= follow_user_path(@user) %>">        
+          <span class="iconify font-1p5" data-icon="grommet-icons:subtract-circle" data-inline="false"></span>        
+        </a>
+      <% else %>
+        <a href="<%= unfollow_user_path(@user) %>">
+          <span class="iconify font-1p5" data-icon="carbon:add-alt" data-inline="false"></span>
+        </a>
+      <% end %>
+      
     </article>
     <% end %>
   <% end %>

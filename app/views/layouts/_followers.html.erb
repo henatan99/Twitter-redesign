@@ -1,0 +1,33 @@
+<div  class="who-to-section flex-column flex">
+      
+
+<% @followers.each do |user| %>
+    <% unless user == @user %> 
+    <article class="who-to-story flex-row">
+     <div class="who-to-profile img-div">
+      <% if user.photo %>
+      <%= image_tag(user.photo_url.to_s) %> 
+      <% end %>
+     </div>
+     <div class = "who-to-body">
+        <div class="name-follow-wrapper flex-coumn">
+         <h1> <%= link_to user.fullname, user_path(user) %> </h1>
+         <p> @ <%= user.username %> </p>         
+        </div>
+                      
+      </div>
+      <% if current_user.follow?(user) %>
+        <a href="<%= follow_user_path(@user) %>">        
+          <span class="iconify font-1p5" data-icon="grommet-icons:subtract-circle" data-inline="false"></span>        
+        </a>
+      <% else %>
+        <a href="<%= unfollow_user_path(@user) %>">
+          <span class="iconify font-1p5" data-icon="carbon:add-alt" data-inline="false"></span>
+        </a>
+      <% end %>
+      
+    </article>
+    <% end %>
+  <% end %>
+
+  <div>

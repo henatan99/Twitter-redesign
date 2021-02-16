@@ -15,7 +15,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @following = Following.new     
     @followers = @user.followers
-    @last_follower = @followers.last
+    @followings = @user.followeds
+    @last_follower = @followers.last    
   end
 
   # GET /users/new
@@ -24,7 +25,8 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
+  def edit    
+    @opinion = Opinion.new
   end
 
   # POST /users or /users.json
@@ -68,18 +70,19 @@ class UsersController < ApplicationController
   def follow
     @user = User.find(params[:id])
     following = current_user.follow(@user)
-    if following.valid?
+    if following.valid? && @user != current_user
+      following.save
       redirect_to root_path, notice: 'You followed #{@user.username}!'
     else
       redirect_to root_path, notice: 'Invalid Request!'
     end     
   end
 
-  def upload 
-    uploaded_file = params[:photo]
-    File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
-      file.write(uploaded_file.read)
-    end 
+  def unfollow
+    @user = User.find(params[:id])
+    current_user.unfollow(@user.id)
+    
+    redirect_to root_path, notice: 'You Unfollowed #{@user.username}!'    
   end 
 
   private

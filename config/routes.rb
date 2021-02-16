@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users do
     member do 
-      get 'follow'      
+      get 'follow'
+      get 'unfollow'
+      get 'upload_photo'
+      get 'upload_cover'    
     end 
   end 
   resources :sessions, only: %i[new create destroy]

@@ -15,8 +15,20 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true, length: { maximum: 20 }
     validates :fullname, presence: true, length: { maximum: 30 }    
 
+    mount_uploader :photo, PhotoUploader
+    mount_uploader :coverimage, CoverimageUploader
+
     def follow(user)
         following = followings.build(followed: user)        
-    end    
+    end  
+    
+    def follow?(user)
+        followeds.include?(user)
+    end
+
+    def unfollow(user_id)
+        following = followings.find_by_followed_id(user_id)
+        following.destroy
+    end  
     
 end
