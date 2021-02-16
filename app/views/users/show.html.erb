@@ -17,9 +17,12 @@
     <% @user.opinions.each do |opinion| %>
       <article class="opinion-story flex-row">
       <img class="opinion-profile"></img>
-      <div class = "opinion-body font-fam">
-          <h1> <%= opinion.author.fullname %> </h1>
-          <p> <%= opinion.text %> </p>
+      <div class = "opinion-body font-fam w-100">
+        <div class="flex-row space-between w-100">
+          <h1> <%= link_to opinion.author.fullname, user_path(opinion.author) %> </h1>
+          <p class='opinion-date'> <%= opinion.created_at.strftime("%H") %> h </p>
+        </div>
+        <p> <%= opinion.text %> </p>
       </div>
      </article>
     <% end %>
