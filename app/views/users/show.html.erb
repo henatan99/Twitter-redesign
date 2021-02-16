@@ -32,7 +32,7 @@
         <div class="show-article flex flex-column">
             <div class="photo-wrapper flex-row flex">
               <% if current_user.follow?(@user) %>
-                <a href="<%= follow_user_path(@user) %>">        
+                <a href="<%= unfollow_user_path(@user) %>">        
                   <span class="iconify font-1p5" data-icon="grommet-icons:subtract-circle" data-inline="false"></span>        
                 </a>
               <% else %>
@@ -89,11 +89,11 @@
                       
       </div>
       <% if current_user.follow?(user) %>
-        <a href="<%= follow_user_path(@user) %>">        
+        <a href="<%= unfollow_user_path(user) %>">        
           <span class="iconify font-1p5" data-icon="grommet-icons:subtract-circle" data-inline="false"></span>        
         </a>
       <% else %>
-        <a href="<%= unfollow_user_path(@user) %>">
+        <a href="<%= follow_user_path(user) %>">
           <span class="iconify font-1p5" data-icon="carbon:add-alt" data-inline="false"></span>
         </a>
       <% end %>
