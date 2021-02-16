@@ -12,7 +12,7 @@
   </picture>  
   <%= render './layouts/frontmenu'%>
   
-  <section class="opinions-section flex flex-column position-sticky">
+  <section id="opinions-section" class="opinions-section flex flex-column position-sticky">
     <span class="opinions-title font-fam"> ALL OPINIONS </span>
     <% @user.opinions.each do |opinion| %>
       <article class="opinion-story flex-row">
@@ -27,6 +27,14 @@
      </article>
     <% end %>
   </section>
+
+  <div id = "followers">
+  This is followers
+  </div>
+
+  
+
+  <%= render './layouts/followings' %>
 
 </section>
 
