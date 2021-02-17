@@ -19,7 +19,7 @@ class User < ApplicationRecord
   mount_uploader :coverimage, CoverimageUploader
 
   def follow(user)
-    following = followings.build(followed: user)
+    followings.build(followed: user)
   end
 
   def follow?(user)
