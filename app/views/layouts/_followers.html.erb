@@ -1,0 +1,34 @@
+
+<div   class="opinions-section flex flex-column  ">
+<span class="opinions-title font-fam"> FOLLOWERS </span>
+<% @followers.each do |user| %>
+  <% unless user == @user %> 
+  <article class="opinion-story flex-row">
+   <div class="opinion-profile img-div">
+    <% if user.photo %>
+    <%= image_tag(user.photo_url.to_s) %> 
+    <% end %>
+   </div>
+   <div class = "opinion-body font-fam w-100">
+      <div class="flex-column space-between w-100">
+       <h1> <%= link_to user.fullname, user_path(user) %> </h1>
+       <p> @ <%= user.username %> </p>         
+      </div>                      
+    </div>
+    <% if current_user.follow?(user) %>
+      <a href= "<%= unfollow_user_path(user) %>">        
+        <span class="iconify font-1p5" data-icon="grommet-icons:subtract-circle" data-inline="false"></span>        
+      </a>
+    <% else %>
+      <a href= "<%= follow_user_path(@user) %>">
+        <span class="iconify font-1p5" data-icon="carbon:add-alt" data-inline="false"></span>
+      </a>
+    <% end %>      
+  </article>
+  <% end %>
+<% end %> 
+
+
+  </div> 
+
+  

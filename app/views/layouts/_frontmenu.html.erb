@@ -1,0 +1,17 @@
+<div class="front-menu flex-row ">
+<a href="<%= user_path(@user) %>">  
+    <span id="view-opinions" class="menu-title font-fam flex-row flex">OPINIONS</span>
+</a> 
+
+<a href="<%= following_user_path(@user) %>">
+    <span id = "view-followings" class="menu-title font-fam flex-row flex">FOLLOWING</span>
+</a> 
+<a href="<%= followers_user_path(@user) %>">
+    <span id = "view-followers" class="menu-title font-fam flex-row flex">FOLLOWERS</span>
+</a>
+
+
+<a href="<%= users_path %>">
+    <span id = "view-lists" class="menu-title font-fam flex-row flex">LISTS</span>
+</a>
+</div>
