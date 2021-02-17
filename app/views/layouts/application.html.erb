@@ -80,20 +80,28 @@
         $('#followers').show()
         $('#opinions-section').hide()        
         $('#followings').hide()
+        $('#lists').hide()
       });
 
       $('#view-opinions').on('click', function() {
         $('#opinions-section').show()
         $('#followers').hide()
         $('#followings').hide()
-      });
-
-     
+        $('#lists').hide()
+      });     
 
       $('#view-followings').on('click', function() {
         $('#followings').show()
         $('#opinions-section').hide()
-        $('#followers').hide()        
+        $('#followers').hide()  
+        $('#lists').hide()      
+      });
+
+      $('#view-lists').on('click', function() {
+        $('#followings').hide()
+        $('#opinions-section').hide()
+        $('#followers').hide()  
+        $('#lists').show()      
       });
         
     });  

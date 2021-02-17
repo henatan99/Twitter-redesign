@@ -19,6 +19,20 @@ class UsersController < ApplicationController
     @last_follower = @followers.last    
   end
 
+  
+
+  def following
+    @users = User.all
+    @user = User.find(params[:id])
+    @followings = @user.followeds     
+  end 
+
+  def followers
+    @users = User.all
+    @user = User.find(params[:id])
+    @followers = @user.followers     
+  end 
+
   # GET /users/new
   def new
     @user = User.new

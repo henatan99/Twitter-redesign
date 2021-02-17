@@ -7,7 +7,9 @@ Rails.application.routes.draw do
       get 'follow'
       get 'unfollow'
       get 'upload_photo'
-      get 'upload_cover'    
+      get 'upload_cover'  
+      get 'following'
+      get 'followers'  
     end 
   end 
   resources :sessions, only: %i[new create destroy]
