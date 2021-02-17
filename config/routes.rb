@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :opinions
   resources :followings
-  devise_for :users
+  # devise_for :users
   resources :users do
     member do 
       get 'follow'

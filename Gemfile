@@ -25,9 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'bulma-rails', '~> 0.9.1'
-gem 'simple_form', '~> 5.1'
-gem 'gravatar_image_tag', '~> 1.2'
 gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'gravatar_image_tag', '~> 1.2'
+gem 'simple_form', '~> 5.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -35,8 +35,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem "database_cleaner"
-  gem "rspec-rails"
+  gem 'database_cleaner'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -47,10 +47,10 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'guard', '~> 2.16', '>= 2.16.2'
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
+  gem 'spring'
 end
 
 group :test do
@@ -58,8 +58,8 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
   gem 'shoulda-matchers', '~> 3.0', require: false
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
