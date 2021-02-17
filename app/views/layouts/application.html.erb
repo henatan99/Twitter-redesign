@@ -33,17 +33,12 @@
           <span class="logo font-1"> 
            <%= image_tag("flower-s.svg") %>
           </span>
-          <% if current_user %>
-          <span class="logout font-fam"> <%= link_to 'Log Out', session_path(session), method: :delete %> </span>
-          <% end %>       
+                 
         </div>
         
         <div class="nav-right flex-row font-1p5">
-        <% if current_user %>
-          <span class="iconify" data-icon="fluent:edit-16-filled" data-inline="false"></span>
-          <span class="iconify" data-icon="fluent:mail-24-filled" data-inline="false"></span>
-          <span class="iconify" data-icon="fa-solid:search" data-inline="false"></span>
-          <span class="iconify" data-icon="clarity:settings-solid" data-inline="false"></span>
+        <% if current_user %>          
+          <span class="logout font-fam"> <%= link_to 'Log Out', session_path(session), method: :delete %> </span>          
         <% else %>
           <span class = "font-fam"> <%= link_to 'Sign In', new_session_path %> </span>
           <span class = "font-fam"> <%= link_to 'Sign Up', new_user_path %> </span>
