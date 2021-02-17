@@ -1,4 +1,4 @@
-    <div class = "front flex-row">
+    <div class = "front flex-row ">
 
       <%= render './layouts/left' %>
     
@@ -6,18 +6,20 @@
       <div class="front-menu flex-row ">
       <a href="<%= root_path %>">  
           <span id="view-opinions" class="menu-title font-fam flex-row flex">OPINIONS</span>
-      </a> 
-      
-      
+      </a>      
       </div>
 
         <%= render './layouts/opinion' %>
         
-        <section class="opinions-section flex-column flex">
+        <section class="opinions-section flex-column flex sticky-top">
            <span class="opinions-title font-fam">4 NEW OPINION</span>
            <% @opinions.each do |opinion| %>
             <article class="opinion-story flex-row">
-             <img class="opinion-profile"></img>
+            <div class="opinion-profile img-div">
+            <% if opinion.author.photo %>
+            <%= image_tag(opinion.author.photo_url.to_s) %> 
+            <% end %>
+           </div>
              <div class = "opinion-body font-fam w-100">
                 <div class="flex-row space-between w-100">
                   <h1> <%= link_to opinion.author.fullname, user_path(opinion.author) %> </h1>
