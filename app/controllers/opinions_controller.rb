@@ -9,6 +9,7 @@ class OpinionsController < ApplicationController
     # timeline_opinions
     @opinions = Opinion.order('created_at DESC')
     @users = User.all
+    # @user = User.find(params[:id])
   end
 
   # GET /opinions/1 or /opinions/1.json
