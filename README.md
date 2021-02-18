@@ -89,6 +89,8 @@ Eg:- In the user show method, we have
     @user_opinions = @user.opinions.order('created_at DESC')
 The @user_opinions is a instance variable which preloads all the opinions pposted by a user. When the user_show page is viewed, all the users opinions are stored in the @user_opinions instance variable, which avoids the need for data base queries for each opinion of the user from the view page. 
 
+## Live demo 
+https://glacial-citadel-13308.herokuapp.com/sessions/new 
 
 ## Built With
 
