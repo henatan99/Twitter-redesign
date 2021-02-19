@@ -24,10 +24,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @followers = @user.followers
   end
-
-  def tofollow_users
-  end 
-
+ 
   # GET /users/new
   def new
     @user = User.new

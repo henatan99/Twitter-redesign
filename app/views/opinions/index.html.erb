@@ -5,7 +5,7 @@
       <section class = "middle-col flex-column">
       <div class="front-menu flex-row ">
       <a href="<%= root_path %>">  
-          <span id="view-opinions" class="menu-title font-fam flex-row flex">OPINIONS</span>
+          <span id="view-opinions" class="menu-title font-fam flex-row flex links">OPINIONS</span>
       </a>      
       </div>
 
@@ -22,7 +22,7 @@
            </div>
              <div class = "opinion-body font-fam w-100">
                 <div class="flex-row space-between w-100">
-                  <h1> <%= link_to opinion.author.fullname, user_path(opinion.author) %> </h1>
+                  <h1 class="links"> <%= link_to opinion.author.fullname, user_path(opinion.author) %> </h1>
                   <p class='opinion-date'> <%= opinion.created_at.strftime("%H") %> h </p>
                  </div>
                  <p> <%= opinion.text %> </p>
