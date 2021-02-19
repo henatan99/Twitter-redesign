@@ -38,8 +38,7 @@
           <span>WHO TO FOLLOW</span>          
         </div>
         <div  class="who-to-section flex-column flex">
-        <% @users.each do |user| %>
-          <% unless user == current_user || current_user.follow?(user) %>
+        <% @tofollow_users.each do |user| %>          
           <article class="who-to-story flex-row">
            <div class="who-to-profile img-div">
             <% if user.photo %>
@@ -54,8 +53,7 @@
                         
               </div>
           </article>
-          <% end %>
-        <% end %>
+          <% end %>        
         <div>
       </section>
     </div>

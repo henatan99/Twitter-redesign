@@ -1,12 +1,12 @@
 class OpinionsController < ApplicationController
-  before_action :require_login
+  before_action :require_login  
   before_action :set_opinion, only: %i[show edit update destroy]
 
   # GET /opinions or /opinions.json
   def index
     @opinion = Opinion.new
     @opinions = Opinion.order('created_at DESC')
-    @users = User.all
+    @tofollow_users = User.all_except(current_user).map { |user| user if !current_user.followeds.include?(user) }     
   end
 
   # GET /opinions/1 or /opinions/1.json

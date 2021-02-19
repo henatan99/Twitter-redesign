@@ -16,12 +16,11 @@
 <div id="lists" class="opinions-section flex flex-column ">
 <span class="opinions-title font-fam"> LISTS </span>     
 
-<% @users.each do |user| %>
-    <% unless user == current_user %> 
+<% @users.each do |user| %>    
     <article class="opinion-story flex-row">
      <div class="opinion-profile img-div">
       <% if user.photo %>
-      <%= image_tag(user.photo_url.to_s) %> 
+        <%= image_tag(user.photo_url.to_s) %> 
       <% end %>
      </div>
      <div class = "opinion-body font-fam w-100">
@@ -38,11 +37,10 @@
         <a href= "<%= follow_user_path(user) %>">
           <span class="iconify font-1p5" data-icon="carbon:add-alt" data-inline="false"></span>
         </a>
-      <% end %>
-      
+      <% end %>      
     </article>
     <% end %>
-  <% end %>
+  
 
   <div>
   
