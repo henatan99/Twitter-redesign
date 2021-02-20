@@ -29,7 +29,7 @@
          <p> @ <%= user.username %> </p>         
         </div>                      
       </div>
-      <% if current_user.follow?(user) %>
+      <% if @current_user_followings.include?(user) %>
         <a href= "<%= unfollow_user_path(user) %>">        
           <span class="iconify font-1p5" data-icon="grommet-icons:subtract-circle" data-inline="false"></span>        
         </a>

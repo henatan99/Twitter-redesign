@@ -6,7 +6,8 @@ class OpinionsController < ApplicationController
   def index
     @opinion = Opinion.new
     @opinions = Opinion.order('created_at DESC')
-    @tofollow_users = User.all_except(current_user) - @current_user.followeds 
+    @tofollow_users = User.all_except(current_user) - @current_user.followeds
+    @current_user_followings = current_user.followeds
   end
 
   # GET /opinions/1 or /opinions/1.json

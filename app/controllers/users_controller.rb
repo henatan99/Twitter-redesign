@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all_except(current_user)
+    @current_user_followings = current_user.followeds
   end
 
   # GET /users/1 or /users/1.json
@@ -13,16 +14,19 @@ class UsersController < ApplicationController
     @user_opinions = @user.opinions.includes(:author).order('created_at DESC')
     @followers = @user.followers
     @followings = @user.followeds
+    @current_user_followings = current_user.followeds
   end
 
   def following
     @user = User.find(params[:id])
     @followings = @user.followeds
+    @current_user_followings = current_user.followeds
   end
 
   def followers
     @user = User.find(params[:id])
     @followers = @user.followers
+    @current_user_followings = current_user.followeds
   end
  
   # GET /users/new
