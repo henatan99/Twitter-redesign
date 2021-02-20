@@ -26,9 +26,10 @@
   color: #667b90;
 }
 
-a, a:hover {
+a,
+a:hover {
   text-decoration: none;
-  background: none;  
+  background: none;
 }
 
 .font-fam {
@@ -144,9 +145,8 @@ a, a:hover {
     }
 
     a:hover .username {
-      color:white
+      color: white;
     }
-
   }
 
   .nav-middle {
@@ -219,7 +219,7 @@ a, a:hover {
       background-color: #4fa0df;
     }
 
-    .main-link-lists:hover span{
+    .main-link-lists:hover span {
       color: white;
     }
   }
@@ -296,8 +296,6 @@ a, a:hover {
             justify-content: start;
           }
         }
-
- 
       }
     }
 
@@ -397,11 +395,12 @@ a, a:hover {
       border-bottom: 2px solid;
       border-color: rgb(233, 228, 228);
       display: flex;
-      span {
+
+      .title-span {
         display: flex;
         height: inherit;
         align-items: center;
-      }     
+      }
     }
 
     .who-to-section {
@@ -422,7 +421,6 @@ a, a:hover {
 
         .who-to-body {
           width: 70%;
-
         }
       }
     }

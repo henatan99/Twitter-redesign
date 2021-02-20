@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :require_login, except: %i[new, create]  
+  # before_action :require_login, except: %i[new, create]
   # before_action :set_user, except: %i[ new edit create ]
 
   # GET /users or /users.json
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @followers = @user.followers
     @current_user_followings = current_user.followeds
   end
- 
+
   # GET /users/new
   def new
     @user = User.new

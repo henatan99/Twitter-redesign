@@ -33,5 +33,4 @@ class User < ApplicationRecord
     following = followings.find_by_followed_id(user_id)
     following.destroy
   end
-
 end
