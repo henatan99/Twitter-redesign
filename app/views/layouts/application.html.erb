@@ -24,7 +24,9 @@
           <%= image_tag current_user.photo_url.to_s %> 
           <% end %>
           </picture>
-          <span class="username color-1 font-fam"> <%= link_to current_user.fullname, user_path(current_user) %> </span>
+          <a href= <%= user_path(current_user) %> class="user-link" >
+            <span class="username color-1 font-fam"> <%= current_user.fullname %> </span>
+          </a>
         <% else %>
           <span class="logo-text font-fam color-2 font-1p5">OPINION</span>
         <% end %>

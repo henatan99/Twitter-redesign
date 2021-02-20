@@ -28,7 +28,7 @@
 
 a, a:hover {
   text-decoration: none;
-  background: none;
+  background: none;  
 }
 
 .font-fam {
@@ -142,6 +142,11 @@ a, a:hover {
     .username {
       padding: 0.1px;
     }
+
+    a:hover .username {
+      color:white
+    }
+
   }
 
   .nav-middle {
@@ -161,6 +166,7 @@ a, a:hover {
     .logout {
       width: 50%;
       text-align: right;
+      color: white;
     }
   }
 
@@ -211,6 +217,10 @@ a, a:hover {
 
     .main-link-lists:hover {
       background-color: #4fa0df;
+    }
+
+    .main-link-lists:hover span{
+      color: white;
     }
   }
 
