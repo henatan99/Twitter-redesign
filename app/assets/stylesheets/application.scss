@@ -319,8 +319,9 @@
     width: 23%;
     background-color: #f5f6f8;
     border-left: 2px solid;
-    border-color: rgb(233, 228, 228);
+    border-color: #e9e4e4;
     align-items: center;
+    overflow-y: auto;
 
     .show-profile {
       width: 100%;
@@ -376,6 +377,11 @@
       border-bottom: 2px solid;
       border-color: rgb(233, 228, 228);
       display: flex;
+      span {
+        display: flex;
+        height: inherit;
+        align-items: center;
+      }     
     }
 
     .who-to-section {
