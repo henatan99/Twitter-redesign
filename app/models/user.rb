@@ -19,7 +19,7 @@ class User < ApplicationRecord
   mount_uploader :coverimage, CoverimageUploader
 
   scope :all_except, ->(user) { where.not(id: user) }
-  # scope :to_follow, -> (current_user) {where.not(followeds.includes(user)}
+  # scope :to_follow, -> (users) {where.not(followeds.includes(user)}
 
   def follow(user)
     followings.build(followed: user)
@@ -34,7 +34,4 @@ class User < ApplicationRecord
     following.destroy
   end
 
-  def tofollow_users(current_user)
-    tofollow_array = users.map { |user| user if !follow?(user) }
-  end
 end
