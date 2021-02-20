@@ -71,6 +71,6 @@ gem "aws-sdk-s3", require: false
 
 gem 'carrierwave'
 
-gem 'rmagick'
+# gem 'rmagick'
 
-gem 'cloudinary', '~> 1.18', '>= 1.18.1'
+# gem 'cloudinary', '~> 1.18', '>= 1.18.1'
