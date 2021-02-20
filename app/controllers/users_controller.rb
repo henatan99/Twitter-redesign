@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :require_login, except: %i[new, create]
+  # before_action :require_login, except: %i[new, create]  
   # before_action :set_user, except: %i[ new edit create ]
 
   # GET /users or /users.json

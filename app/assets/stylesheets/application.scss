@@ -23,6 +23,12 @@
 
 .color-2 {
   color: #bdcad5;
+  color: #667b90;
+}
+
+a, a:hover {
+  text-decoration: none;
+  background: none;
 }
 
 .font-fam {
@@ -107,6 +113,10 @@
 
 .absolute {
   position: absolute;
+}
+
+.hov:hover {
+  color: #4fa0df;
 }
 
 .main-nav {

@@ -27,15 +27,15 @@
 
         <div class="show-following flex-row">
             <div class="follow-nums flex-column flex">
-                <span> <%= @user_opinions.count %> </span>
+                <span> <%= @user_opinions.count if @user_opinions%> </span>
                 <p>Opinions</p>
             </div>
             <div class="follow-nums flex-column flex middle">
-                <span> <%= @followings.count %> </span>
+                <span> <%= @followings.count if @followings %> </span>
                 <p>Followings</p>
             </div>
             <div class="follow-nums flex-column flex">
-                <span> <%= @followers.count %></span>
+                <span> <%= @followers.count if @followers %></span>
                 <p>Followers</p>
             </div>
         </div>
@@ -44,6 +44,7 @@
     <span>FOLLOWED BY</span>          
   </div>
   <div  class="who-to-section flex-column flex">
+  <% if @followers %>
   <% @followers.each do |user| %>
     <% unless user == @user %> 
     <article class="who-to-story flex-row">
@@ -71,6 +72,7 @@
       
     </article>
     <% end %>
+  <% end %>
   <% end %>
   <div>
 </section>

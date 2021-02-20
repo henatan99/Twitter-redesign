@@ -32,13 +32,12 @@
         <div class="nav-middle flex-row">
           <span class="logo font-1"> 
            <%= image_tag("flower-s.svg") %>
-          </span>
-                 
+          </span>                 
         </div>
         
         <div class="nav-right flex-row font-1p5">
         <% if current_user %>          
-          <span class="logout font-fam"> <%= link_to 'Log Out', session_path(session), method: :delete %> </span>          
+          <span class="logout font-fam font-1"> <%= link_to 'Log Out', session_path(session), method: :delete %> </span>          
         <% else %>
           <span class = "font-fam"> <%= link_to 'Sign In', new_session_path %> </span>
           <span class = "font-fam"> <%= link_to 'Sign Up', new_user_path %> </span>
