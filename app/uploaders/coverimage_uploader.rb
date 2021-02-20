@@ -3,6 +3,8 @@ class CoverimageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
+  include Cloudinary::CarrierWave
+
   # process resize_to_fit: [10, 10]
 
   # Choose what kind of storage to use for this uploader:

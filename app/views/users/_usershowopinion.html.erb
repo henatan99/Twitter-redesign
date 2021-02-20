@@ -4,7 +4,7 @@
       <article class="opinion-story flex-row">
       <div class="opinion-profile img-div">
       <% if @user.photo %>
-      <%= image_tag(@user.photo_url.to_s) %> 
+      <%= image_tag(@user.photo_url.to_s, width: 60, height: 60) %> 
       <% end %>
      </div>
       <div class = "opinion-body font-fam w-100">

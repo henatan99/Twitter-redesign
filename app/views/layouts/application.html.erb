@@ -21,7 +21,7 @@
           
           <picture class="profile-img"> 
           <% if current_user.photo %>
-          <%= image_tag current_user.photo_url.to_s %> 
+          <%= image_tag(current_user.photo_url.to_s, width: "100%", height: "100%") %> 
           <% end %>
           </picture>
           <a href= <%= user_path(current_user) %> class="user-link" >

@@ -73,3 +73,4 @@ gem 'carrierwave'
 
 gem 'rmagick'
 
+gem 'cloudinary', '~> 1.18', '>= 1.18.1'
