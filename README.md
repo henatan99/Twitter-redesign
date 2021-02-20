@@ -90,7 +90,7 @@ Eg:- In the user show and index methods, we have
 - @users = User.all_except(current_user)
 The @user_opinions is a instance variable which preloads all the opinions posted by a user except the current_user. When the user_show page is viewed, all the users opinions are stored in the @user_opinions instance variable, which avoids the need for data base queries for each opinion of the user from the view page. 
 
-## Live demo 
+## Live demo [Heroku]
 https://glacial-citadel-13308.herokuapp.com/sessions/new 
 
 ## Built With
