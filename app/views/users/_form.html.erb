@@ -1,0 +1,12 @@
+
+
+<%= form_for(@opinion) do |f| %> 
+
+  <div class="form-inputs">
+    <%= f.text_field :text, placeholder: "Enter your opinion", :class => 'text' %>     
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'submit', :class => 'submit'%>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+<div class = "login" %>
+    <div>
+        <% if alert %>
+        <p id="alert"><%= alert %></p>
+        <% end %>
+    </div>
+    
+    <div class="login-form">
+        <h1 class="font-fam">Sign Up</h1>
+
+        <%= form_for @user, :html => { :multipart => true } do |form| %>
+        <div class="field">
+        <div class = 'inner-div'> 
+            <span class = "text-field"> <%= form.text_field :username, placeholder: "Enter your username", :class => 'text' %> </span>      
+            <span class = "text-field"> <%= form.text_field :fullname, placeholder: "Enter your Full Name", :class => 'text' %> </span>
+            <div class="profile-photo">
+                <%= form.label "Profile Photo" %>
+                <%= form.file_field :photo %>
+            </div>
+            <div class="profile-photo">
+                <%= form.label "Cover Image" %>
+                <%= form.file_field :coverimage %>                
+            </div>
+            <%= form.submit 'Sign Up', :class => 'submit' %> 
+            
+        </div>
+        </div>
+        <% end %>    
+    </div>
+</div>

@@ -8,9 +8,61 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
   </head>
 
   <body>
-    <%= yield %>
+  
+    <header class="w-100">
+      <nav class= "main-nav flex-row">       
+        <div class="nav-left flex-row flex">
+        <% if current_user %>
+          
+          <picture class="profile-img"> 
+          <% if current_user.photo %>
+          <%= image_tag(current_user.photo_url.to_s, width: "100%", height: "100%") %> 
+          <% end %>
+          </picture>
+          <a href= <%= user_path(current_user) %> class="user-link" >
+            <span class="username color-1 font-fam"> <%= current_user.fullname %> </span>
+          </a>
+        <% else %>
+          <span class="logo-text font-fam color-2 font-1p5">OPINION</span>
+        <% end %>
+        </div>
+        <div class="nav-middle flex-row">
+          <span class="logo font-1"> 
+           <%= image_tag("flower-s.svg") %>
+          </span>                 
+        </div>
+        
+        <div class="nav-right flex-row font-1p5">
+        <% if current_user %>          
+          <span class="logout font-fam font-1"> <%= link_to 'Log Out', session_path(session), method: :delete %> </span>          
+        <% else %>
+          <span class = "font-fam"> <%= link_to 'Sign In', new_session_path %> </span>
+          <span class = "font-fam"> <%= link_to 'Sign Up', new_user_path %> </span>
+        <% end %>
+        </div>
+        
+      </nav>
+    </header>
+    
+
+    <% if flash[:notice] %>
+      <div class = "notification is-primary global-notification"> 
+        <p class="alert"> <%= alert %> </p>
+      </div> 
+    <% end %> 
+
+    <% if flash[:alert] %>
+      <div class = "notification is-danger global-notification"> 
+      </div> 
+    <% end %>
+    
+    <%= yield %>    
+  
   </body>
+
 </html>

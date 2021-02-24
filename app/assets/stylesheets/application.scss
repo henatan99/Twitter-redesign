@@ -1,0 +1,428 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bulma";
+
+//  general
+.color-1 {
+  color: #667b90;
+}
+
+.color-2 {
+  color: #bdcad5;
+  color: #667b90;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  background: none;
+}
+
+.font-fam {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.font-1 {
+  font-size: 1rem;
+}
+
+.font-1p5 {
+  font-size: 1.5rem;
+}
+
+.font-2 {
+  font-size: 2rem;
+}
+
+.img-div {
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  object-fit: cover;
+  padding: 0.1px;
+  overflow: hidden;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex {
+  align-items: center;
+  justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.box {
+  width: 100%;
+  background-color: #f5f6f8;
+}
+
+.sticky-top {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+.sticky-bottom {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  bottom: 0;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.hov:hover {
+  color: #4fa0df;
+}
+
+.main-nav {
+  width: 100%;
+  padding: 0.01px;
+
+  .nav-left {
+    width: 17%;
+    background-color: #213246;
+    padding: 1rem;
+
+    .profile-img {
+      width: 3rem;
+      height: 3rem;
+      margin-right: 1rem;
+      background-color: white;
+      border-radius: 8px;
+      padding: 0.1px;
+      overflow: hidden;
+      object-fit: cover;
+    }
+
+    .username {
+      padding: 0.1px;
+    }
+
+    a:hover .username {
+      color: white;
+    }
+  }
+
+  .nav-middle {
+    width: 60%;
+    background: #4fa0df;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      margin-left: 1rem;
+      border-bottom: 3px solid;
+      border-right: 3px solid;
+      border-color: white;
+      border-radius: 25px;
+    }
+
+    .logout {
+      width: 50%;
+      text-align: right;
+      color: white;
+    }
+  }
+
+  .nav-right {
+    width: 23%;
+    background: #4fa0df;
+    justify-content: space-around;
+    align-items: center;
+
+    .iconify {
+      width: 3rem;
+    }
+  }
+}
+
+.front {
+  width: 100%;
+  height: 800px;
+  overflow-y: auto;
+
+  .left-col {
+    width: 17%;
+    background-color: #213246;
+
+    .following {
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+
+      .follow-part {
+        width: 50%;
+        height: 4rem;
+        border-right: 1px solid;
+      }
+    }
+
+    .main-link-lists {
+      width: 100%;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      padding-left: 1rem;
+      display: flex;
+      align-items: center;
+
+      .link-iconify {
+        margin-right: 0.5rem;
+      }
+    }
+
+    .main-link-lists:hover {
+      background-color: #4fa0df;
+    }
+
+    .main-link-lists:hover span {
+      color: white;
+    }
+  }
+
+  .middle-col {
+    width: 60%;
+    background-color: #f5f6f8;
+    overflow-y: auto;
+
+    .back-img {
+      width: 100%;
+      height: 15rem;
+      background-color: gray;
+      object-fit: contain;
+      padding: 0.1px;
+      overflow: hidden;
+    }
+
+    .front-menu {
+      width: 100%;
+      height: 4rem;
+      border-bottom: 2px solid;
+      border-color: rgb(233, 228, 228);
+
+      .menu-title {
+        height: 100%;
+        padding-left: 1.5rem;
+      }
+
+      .menu-title:hover {
+        border-bottom: 3px solid;
+        border-color: #4fa0df;
+      }
+    }
+
+    .opinion-section {
+      width: 90%;
+      border-radius: 10px;
+      background-color: white;
+      margin: 5%;
+      border: 2px solid;
+      border-color: rgb(233, 228, 228);
+
+      .opinion-title {
+        width: 90%;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+
+      .opinion-field {
+        width: 90%;
+        margin-bottom: 1rem;
+        padding: 0;
+
+        .form-inputs {
+          width: 100%;
+          margin: 0;
+          display: flex;
+          justify-content: initial;
+          border: 2px solid;
+          border-color: #e9e4e4;
+          padding: 0.5rem;
+
+          .text {
+            width: 100%;
+            border: none;
+            margin: 0;
+            outline: none;
+          }
+
+          .text:focus {
+            height: 5rem;
+            display: inline;
+            justify-content: start;
+          }
+        }
+      }
+    }
+
+    .opinions-section {
+      width: 90%;
+      border-radius: 10px;
+      background-color: white;
+      margin: 5%;
+      border: 2px solid;
+      border-color: rgb(233, 228, 228);
+      position: -webkit-sticky;
+
+      .opinions-title {
+        width: 90%;
+        border-bottom: 2px solid;
+        border-color: rgb(233, 228, 228);
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .opinion-story {
+        width: 90%;
+        margin-bottom: 2rem;
+
+        .opinion-profile {
+          width: 4rem;
+          height: 4rem;
+          background-color: gray;
+        }
+
+        .opinion-body {
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+
+  .right-col {
+    width: 23%;
+    background-color: #f5f6f8;
+    border-left: 2px solid;
+    border-color: #e9e4e4;
+    align-items: center;
+    overflow-y: auto;
+
+    .show-profile {
+      width: 100%;
+      height: 15rem;
+      border-bottom: 2px solid;
+      border-color: rgb(233, 228, 228);
+
+      .show-article {
+        height: 11rem;
+        border-bottom: 2px solid;
+        border-color: rgb(233, 228, 228);
+
+        .photo-wrapper {
+          .user-img {
+            width: 4rem;
+            height: 4rem;
+            background-color: cyan;
+            margin-right: 1rem;
+            margin-left: 1rem;
+            overflow: hidden;
+            padding: 0.1px;
+            object-fit: cover;
+          }
+
+          .iconify {
+            font-size: 2rem;
+          }
+        }
+
+        .user-name {
+          align-items: center;
+        }
+      }
+
+      .show-following {
+        height: 4rem;
+
+        .follow-nums {
+          width: 33.33%;
+        }
+
+        .middle {
+          border-left: 2px solid;
+          border-right: 2px solid;
+          border-color: rgb(233, 228, 228);
+        }
+      }
+    }
+
+    .title {
+      width: 90%;
+      height: 4rem;
+      border-bottom: 2px solid;
+      border-color: rgb(233, 228, 228);
+      display: flex;
+
+      .title-span {
+        display: flex;
+        height: inherit;
+        align-items: center;
+      }
+    }
+
+    .who-to-section {
+      width: 80%;
+      margin: 5%;
+
+      .who-to-story {
+        width: 100%;
+        margin-bottom: 2rem;
+
+        .who-to-profile {
+          width: 4rem;
+          height: 4rem;
+          background-color: gray;
+          border-radius: 2rem;
+          margin-right: 1rem;
+        }
+
+        .who-to-body {
+          width: 70%;
+        }
+      }
+    }
+  }
+}
