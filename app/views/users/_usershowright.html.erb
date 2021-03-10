@@ -50,7 +50,7 @@
     <article class="who-to-story flex-row">
      <div class="who-to-profile img-div">
       <% if user.photo %>
-      <%= image_tag(user.photo_url.to_s, width: 60, height: 60) %> 
+      <%= image_tag(user.photo_url.to_s, :class => "style-image") %> 
       <% end %>
      </div>
      <div class = "who-to-body">
