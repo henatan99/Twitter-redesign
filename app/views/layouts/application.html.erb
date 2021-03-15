@@ -47,21 +47,22 @@
         </div>
         
       </nav>
-    </header>
+    </header>    
     
-
     <% if flash[:notice] %>
       <div class = "notification is-primary global-notification"> 
-        <p class="alert"> <%= alert %> </p>
+        <p class="notice"> <%= notice %> </p>
       </div> 
     <% end %> 
 
     <% if flash[:alert] %>
-      <div class = "notification is-danger global-notification"> 
+      <div class = "notification is-danger global-notification">
+        <p class="alert"> <%= alert %> </p>
       </div> 
     <% end %>
     
-    <%= yield %>    
+    <%= yield %>
+    <p id="notice"><%= notice %></p> 
     <script src="https://code.iconify.design/2/2.0.0-rc.3/iconify.min.js"></script>
   </body>
 

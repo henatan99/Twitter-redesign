@@ -1,5 +1,15 @@
 <section class = "opinion-section flex-column flex">
-<p id="notice"><%= notice %></p>
+<% if @opinion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@opinion.errors.count, "error") %> prohibited this opinion from being saved:</h2>
+
+      <ul>
+        <% @opinion.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
   <span class="opinion-title font-fam">YOUR OPINION</span>
   
   <div class = "opinion-field">

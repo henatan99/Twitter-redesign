@@ -83,7 +83,7 @@ class UsersController < ApplicationController
     following = current_user.follow(@user)
     if following.valid? && @user != current_user
       following.save
-      redirect_to root_path, notice: 'You followed' + @user.name + 'successfully!'
+      redirect_to root_path, notice: 'You followed ' + @user.fullname + ' successfully!'
     else
       redirect_to root_path, notice: 'Invalid Request!'
     end
@@ -93,7 +93,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     current_user.unfollow(@user.id)
 
-    redirect_to root_path, notice: 'You Unfollowed' + @user.name + 'successfuly!'
+    redirect_to root_path, notice: 'You Unfollowed ' + @user.fullname + ' successfuly!'
   end
 
   private
