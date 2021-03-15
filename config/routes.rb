@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get 'followers'  
     end 
   end 
-  resources :sessions, only: %i[new create destroy]
+  resources :sessions, only: %i[new create show destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "opinions#index"
 end

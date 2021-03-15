@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  def new; end
+  def new
+  end
 
   def create
     user = User.find_by_username(params[:username])
@@ -7,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path, notice: 'Logged in succussfully!'
     else
-      render 'new', alert: 'The name is invalid'
+      redirect_to new_session_path, alert: 'The username is invalid'       
     end
   end
 
