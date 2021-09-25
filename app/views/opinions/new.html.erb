@@ -1,5 +1,11 @@
-<h1>New Opinion</h1>
+<div class = "front flex-row ">
+    <%= render './layouts/left' %>
 
-<%= render 'form', opinion: @opinion %>
+    <section class = "middle-col flex-column">       
 
-<%= link_to 'Back', opinions_path %>
+        <%= render './layouts/opinion' %>
+        <div class = "flex-column flex">
+            <%= link_to 'Back', opinions_path %>
+        </div>
+    </section> 
+</div>

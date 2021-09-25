@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  # before_action :require_login, except: %i[new, create]
-  # before_action :set_user, except: %i[ new edit create ]
+  # before_action :require_login,  all_except: %i[new, create]
+
+  skip_before_action :require_login, only: %i[new create], raise: false
 
   # GET /users or /users.json
   def index
@@ -82,7 +83,7 @@ class UsersController < ApplicationController
     following = current_user.follow(@user)
     if following.valid? && @user != current_user
       following.save
-      redirect_to root_path, notice: 'You followed successfully!'
+      redirect_to root_path, notice: "You followed #{@user.fullname} successfully!"
     else
       redirect_to root_path, notice: 'Invalid Request!'
     end
@@ -92,7 +93,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     current_user.unfollow(@user.id)
 
-    redirect_to root_path, notice: 'You Unfollowed successfuly!'
+    redirect_to root_path, notice: "You Unfollowed #{@user.fullname} successfuly!"
   end
 
   private

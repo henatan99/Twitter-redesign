@@ -17,6 +17,10 @@
 @import "bulma";
 
 //  general
+img {
+  object-fit: cover;
+}
+
 .color-1 {
   color: #667b90;
 }
@@ -50,13 +54,29 @@ a:hover {
   font-size: 2rem;
 }
 
+.iconify {
+  font-weight: normal;
+  font-style: normal;
+  display: block;
+}
+
 .img-div {
   width: 100%;
   height: 100%;
   background-color: gray;
-  object-fit: cover;
+  object-fit: scale-down;
   padding: 0.1px;
   overflow: hidden;
+}
+
+.style-image {
+  width: 4rem;
+  height: 4rem;
+}
+
+.style-cover {
+  width: 100%;
+  height: 15rem;
 }
 
 .flex-row {
@@ -294,6 +314,10 @@ a:hover {
             height: 5rem;
             display: inline;
             justify-content: start;
+          }
+
+          .field_with_errors {
+            width: 100%;
           }
         }
       }

@@ -20,7 +20,7 @@ The home page has three sections
 - The middle section has the new opinion form and the opinions section which lists all the opinions posted by all users with their profile and the time created. 
 - The right section has the who to follow list. It lists all users who are not already being followed by the current_user. 
 
-![screenshot](docs/opinions_index.png)
+![screenshot](docs/home.png)
 
 ### User show page 
 The user show page has the three sections as the home page: left, middle and right sections.
@@ -34,12 +34,12 @@ The user show page has the three sections as the home page: left, middle and rig
     - A section showing the number of opinions, followers, and followings of the user
     - A followers section listing all the followers of the user    
 
-![screenshot](docs/user_show.png)
+![screenshot](docs/user-show.png)
 
 ### Users index page 
 The user index page lists all the users with their profile
 
-![screenshot](docs/users_index.png)
+![screenshot](docs/connect.png)
 
 ### Followers show page 
 The followers show page has similar views as the user show page except it lists the followers of the user instead of the opinions
@@ -91,7 +91,7 @@ Eg:- In the user show and index methods, we have
 The @user_opinions is an instance variable which preloads all the opinions posted by a user except the current_user. When the user_show page is viewed, all the user's opinions are stored in the @user_opinions instance variable, which avoids the need for database queries for each opinion of the user from the view page. 
 
 ## Live demo [Heroku]
-https://glacial-citadel-13308.herokuapp.com/sessions/new 
+https://polar-eyrie-60544.herokuapp.com/ 
 
 ## Built With
 
